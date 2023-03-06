@@ -21,12 +21,6 @@
 	            </div>
 	        </div>
 	    </div>
-		<p  v-if="handleFocus">
-			<strong class="primary-font">
-				okk
-			</strong>
-			....
-	    </p>
 	    <div class="chat-form input-group">
 	        <input id="btn-input" 
 			type="text" 
@@ -105,7 +99,6 @@
 	    	let messages = ref([])
 	    	let newMessage = ref('')
 	    	let hasScrolledToBottom = ref('')
-			let handleFocus = ref(false)
 
 	    	onMounted(() =>{
 	    		fetchMessages();
@@ -116,15 +109,6 @@
 	    		scrollBottom()
 	    	})
 
-			const onFocus = () => {
-	    	    handleFocus.value = true;
-				
-			}
-
-			const onBlur = () =>{
-				handleFocus.value = false;
-				console.log(handleFocus.value);
-			}
 
 	    	Echo.private('chat-channel')
 				.listen('SendMessage', (e) => {
@@ -162,9 +146,6 @@
 	        	addMessage,
 	        	fetchMessages,
 	        	hasScrolledToBottom,
-				handleFocus,
-				onFocus,
-				onBlur
 	        }
 	    } 
 	}

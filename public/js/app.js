@@ -22783,7 +22783,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var messages = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
     var newMessage = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
     var hasScrolledToBottom = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
-    var handleFocus = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
       fetchMessages();
       console.log(messages);
@@ -22791,13 +22790,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUpdated)(function () {
       scrollBottom();
     });
-    var onFocus = function onFocus() {
-      handleFocus.value = true;
-    };
-    var onBlur = function onBlur() {
-      handleFocus.value = false;
-      console.log(handleFocus.value);
-    };
     Echo["private"]('chat-channel').listen('SendMessage', function (e) {
       messages.value.push({
         message: e.message.message,
@@ -22858,10 +22850,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       newMessage: newMessage,
       addMessage: addMessage,
       fetchMessages: fetchMessages,
-      hasScrolledToBottom: hasScrolledToBottom,
-      handleFocus: handleFocus,
-      onFocus: onFocus,
-      onBlur: onBlur
+      hasScrolledToBottom: hasScrolledToBottom
     };
   }
 });
@@ -22903,17 +22892,9 @@ var _hoisted_6 = {
   "class": "primary-font"
 };
 var _hoisted_7 = {
-  key: 0
-};
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", {
-  "class": "primary-font"
-}, " okk ", -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" .... ");
-var _hoisted_10 = [_hoisted_8, _hoisted_9];
-var _hoisted_11 = {
   "class": "chat-form input-group"
 };
-var _hoisted_12 = {
+var _hoisted_8 = {
   "class": "input-group-btn"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -22921,7 +22902,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: index
     }, [$props.user.id != message.user.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.user.name) + " : ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1 /* TEXT */)])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.user.name) + " : ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1 /* TEXT */)])]))]);
-  }), 128 /* KEYED_FRAGMENT */))], 512 /* NEED_PATCH */), $setup.handleFocus ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_7, _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }), 128 /* KEYED_FRAGMENT */))], 512 /* NEED_PATCH */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: "btn-input",
     type: "text",
     name: "message",
@@ -22934,12 +22915,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.addMessage && $setup.addMessage.apply($setup, arguments);
     }, ["enter"])),
     onFocus: _cache[2] || (_cache[2] = function () {
-      return $setup.onFocus && $setup.onFocus.apply($setup, arguments);
+      return _ctx.onFocus && _ctx.onFocus.apply(_ctx, arguments);
     }),
     onBlur: _cache[3] || (_cache[3] = function () {
-      return $setup.onBlur && $setup.onBlur.apply($setup, arguments);
+      return _ctx.onBlur && _ctx.onBlur.apply(_ctx, arguments);
     })
-  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.newMessage]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.newMessage]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "btn btn-primary",
     id: "btn-chat",
     onClick: _cache[4] || (_cache[4] = function () {
